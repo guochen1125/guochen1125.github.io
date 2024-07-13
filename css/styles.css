@@ -34,15 +34,6 @@ nav ul li a {
     text-decoration: none;
 }
 
-main {
-    padding: 2rem;
-    margin: 0 10%;
-}
-
-main a {
-    color: #8696a7;
-    text-decoration: underline;
-}
 
 main li {
     list-style-type: none;
