@@ -1,0 +1,108 @@
+/* Reset and basic styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #ececea;
+}
+
+header {
+    background-color: #656565;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 2rem;
+    margin: 0 10%;
+}
+
+main a {
+    color: #8696a7;
+    text-decoration: underline;
+}
+
+main li {
+    list-style-type: none;
+}
+
+
+/* styles.css */
+
+footer {
+    position: fixed;
+    /* 使用固定定位 */
+    bottom: 0;
+    /* 放置在页面底部 */
+    left: 0;
+    /* 左边距离为0 */
+    width: 100%;
+    /* 宽度占满整个视口 */
+
+    padding: 10px 20px;
+    /* 可选：添加内边距 */
+    text-align: center;
+    /* 可选：文本居中 */
+    z-index: 1000;
+    /* 可选：设置一个足够高的z-index，确保在其他元素之上 */
+}
+
+.social-icons {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icons li a {
+    color: #000000;
+    /* 设置图标颜色 */
+}
+
+.social-icons li a:hover {
+    color: #656565;
+    /* 设置鼠标悬停时的颜色 */
+}
+
+
+
+/* Adjusting spacing between headings and paragraphs */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 0.2em;
+}
+
+p {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
