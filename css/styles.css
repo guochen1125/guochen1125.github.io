@@ -1,46 +1,74 @@
-/* Reset and basic styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Times New Roman", SimSun, serif;
+    /* 设置字体为 T 和 sans-serif */
     line-height: 1.6;
+    /* 设置行高为 1.6 */
     margin: 0;
+    /* 设置外边距为 0 */
     padding: 0;
+    /* 设置内边距为 0 */
     background-color: #ececea;
+    /* 设置背景颜色为 #ececea */
 }
 
 header {
     background-color: #656565;
+    /* 设置背景颜色为 #656565 */
     color: #fff;
-    padding: 1rem 0;
+    /* 设置字体颜色为白色 */
+    padding: 0.2rem 0;
+    /* 设置上下内边距为 1rem */
     text-align: center;
+    /* 设置文本居中对齐 */
 }
 
 header h1 {
     margin: 0;
+    /* 设置外边距为 0 */
 }
 
 nav ul {
     list-style: none;
+    /* 移除列表项的默认样式 */
     padding: 0;
+    /* 设置内边距为 0 */
     text-align: center;
+    /* 设置文本居中对齐 */
 }
 
 nav ul li {
     display: inline;
+    /* 设置列表项为内联显示 */
     margin: 0 1rem;
+    /* 设置左右外边距为 1rem */
 }
 
 nav ul li a {
     color: #fff;
+    /* 设置链接颜色为白色 */
     text-decoration: none;
+    /* 移除链接的下划线 */
 }
 
+main {
+    padding: 0 10%;
+
+}
 
 main li {
+
     list-style-type: none;
+    /* 移除列表项的默认样式 */
 }
 
+main h2 {
+    font-family: Arial, Helvetica, sans-serif
+}
 
-/* styles.css */
+main p {
+    font-size: 1.2rem;
+    margin-left: 2%;
+}
 
 footer {
     position: fixed;
@@ -80,8 +108,6 @@ footer {
     color: #656565;
     /* 设置鼠标悬停时的颜色 */
 }
-
-
 
 /* Adjusting spacing between headings and paragraphs */
 h1,
