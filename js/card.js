@@ -63,34 +63,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 标记或取消标记卡片，并保存到LocalStorage
+    // 标记或取消标记卡片
     function toggleBookmark(index) {
         const bookmarkBtn = cards[index].querySelector('.bookmark-btn');
         bookmarkBtn.classList.toggle('bookmarked');
-
-        // 保存状态到LocalStorage
-        const bookmarkedCards = JSON.parse(localStorage.getItem('bookmarkedCards')) || {};
-        bookmarkedCards[index] = bookmarkBtn.classList.contains('bookmarked');
-        localStorage.setItem('bookmarkedCards', JSON.stringify(bookmarkedCards));
     }
-
-    // 在页面加载时，根据LocalStorage恢复标记状态
-    function restoreBookmarkState() {
-        const bookmarkedCards = JSON.parse(localStorage.getItem('bookmarkedCards')) || {};
-        Object.keys(bookmarkedCards).forEach(index => {
-            const isBookmarked = bookmarkedCards[index];
-            if (isBookmarked) {
-                cards[index].querySelector('.bookmark-btn').classList.add('bookmarked');
-            }
-        });
-    }
-
-    // 在DOMContentLoaded事件中调用恢复函数
-    document.addEventListener('DOMContentLoaded', function () {
-        // 其他代码...
-        restoreBookmarkState();
-    });
-
 
 
     // 初始显示第一张卡片，隐藏其余卡片
