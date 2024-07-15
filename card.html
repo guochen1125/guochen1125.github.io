@@ -14,6 +14,14 @@
             <button id="nextButton">下一张</button>
         </div>
     </div>
+    <div class="card">
+        <button class="bookmark-btn" data-index="${index}">标记</button>
+        <h2>${cardData.title}</h2>
+        <div class="content hidden"><p>${cardData.content}</p></div>
+        <div class="card-index">${index + 1}/${cards.length}</div>
+    </div>
+    
+    
     <script src="js/card.js"></script>
 </body>
 </html>

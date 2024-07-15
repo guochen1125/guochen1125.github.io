@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const container = document.querySelector('.container');
     const prevButton = document.getElementById('prevButton');
     const nextButton = document.getElementById('nextButton');
@@ -29,16 +29,17 @@ document.addEventListener('DOMContentLoaded', function() {
         return result;
     }
 
-    // 创建卡片并显示
+    // 在创建卡片时，为标记按钮添加点击事件处理程序
     function createCards() {
         cards.forEach((cardData, index) => {
             const newCard = document.createElement('div');
             newCard.classList.add('card');
             newCard.innerHTML = `
-                <h2>${cardData.title}</h2>
-                <div class="content hidden"><p>${cardData.content}</p></div>
-                <div class="card-index">${index + 1}/${cards.length}</div>
-            `;
+            <h2>${cardData.title}</h2>
+            <div class="content hidden"><p>${cardData.content}</p></div>
+            <div class="card-index">${index + 1}/${cards.length}</div>
+            <button class="bookmark-btn" data-index="${index}"></button>
+        `;
             container.insertBefore(newCard, prevButton.parentElement);
         });
 
@@ -48,12 +49,49 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // 添加点击事件监听器
         cards.forEach(card => {
-            card.addEventListener('click', function() {
+            card.addEventListener('click', function () {
                 const content = card.querySelector('.content');
                 content.classList.toggle('hidden');
             });
+
+            const bookmarkBtn = card.querySelector('.bookmark-btn');
+            bookmarkBtn.addEventListener('click', function (event) {
+                event.stopPropagation(); // 防止点击卡片时也触发该事件
+                const index = parseInt(bookmarkBtn.getAttribute('data-index'));
+                toggleBookmark(index);
+            });
         });
     }
+
+    // 标记或取消标记卡片，并保存到LocalStorage
+    function toggleBookmark(index) {
+        const bookmarkBtn = cards[index].querySelector('.bookmark-btn');
+        bookmarkBtn.classList.toggle('bookmarked');
+
+        // 保存状态到LocalStorage
+        const bookmarkedCards = JSON.parse(localStorage.getItem('bookmarkedCards')) || {};
+        bookmarkedCards[index] = bookmarkBtn.classList.contains('bookmarked');
+        localStorage.setItem('bookmarkedCards', JSON.stringify(bookmarkedCards));
+    }
+
+    // 在页面加载时，根据LocalStorage恢复标记状态
+    function restoreBookmarkState() {
+        const bookmarkedCards = JSON.parse(localStorage.getItem('bookmarkedCards')) || {};
+        Object.keys(bookmarkedCards).forEach(index => {
+            const isBookmarked = bookmarkedCards[index];
+            if (isBookmarked) {
+                cards[index].querySelector('.bookmark-btn').classList.add('bookmarked');
+            }
+        });
+    }
+
+    // 在DOMContentLoaded事件中调用恢复函数
+    document.addEventListener('DOMContentLoaded', function () {
+        // 其他代码...
+        restoreBookmarkState();
+    });
+
+
 
     // 初始显示第一张卡片，隐藏其余卡片
     function updateCardDisplay() {
@@ -67,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // 点击上一张按钮时触发事件
-    prevButton.addEventListener('click', function() {
+    prevButton.addEventListener('click', function () {
         if (currentCardIndex > 0) {
             cards[currentCardIndex].style.display = 'none';
             currentCardIndex--;
@@ -76,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // 点击下一张按钮时触发事件
-    nextButton.addEventListener('click', function() {
+    nextButton.addEventListener('click', function () {
         if (currentCardIndex < cards.length - 1) {
             cards[currentCardIndex].style.display = 'none';
             currentCardIndex++;
