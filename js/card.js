@@ -19,8 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const result = [];
 
         lines.forEach(line => {
-            const [title, content] = line.split(',');
-            result.push({ title: title.trim(), content: content.trim() });
+            const columns = line.split(',');
+            const title = columns[0].trim();
+            const content = columns.slice(1).map(col => col.trim()).join('<br>'); // 将剩余的列合并为正文段落
+
+            result.push({ title: title, content: content });
         });
 
         return result;
@@ -38,11 +41,12 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             container.insertBefore(newCard, prevButton.parentElement);
         });
-
+    
         // 更新 cards NodeList
         cards = document.querySelectorAll('.card');
         updateCardDisplay();
     }
+    
 
     // 初始显示第一张卡片，隐藏其余卡片
     function updateCardDisplay() {
