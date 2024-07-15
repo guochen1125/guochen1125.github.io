@@ -36,17 +36,24 @@ document.addEventListener('DOMContentLoaded', function() {
             newCard.classList.add('card');
             newCard.innerHTML = `
                 <h2>${cardData.title}</h2>
-                <p>${cardData.content}</p>
+                <div class="content hidden"><p>${cardData.content}</p></div>
                 <div class="card-index">${index + 1}/${cards.length}</div>
             `;
             container.insertBefore(newCard, prevButton.parentElement);
         });
-    
+
         // 更新 cards NodeList
         cards = document.querySelectorAll('.card');
         updateCardDisplay();
+
+        // 添加点击事件监听器
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                const content = card.querySelector('.content');
+                content.classList.toggle('hidden');
+            });
+        });
     }
-    
 
     // 初始显示第一张卡片，隐藏其余卡片
     function updateCardDisplay() {
