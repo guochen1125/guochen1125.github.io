@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const data = await response.text();
         cards = parseCSV(data);
         createCards();
+        restoreBookmarkState(); // 加载保存的标记状态，确保在创建卡片后进行
     }
 
     // 解析 CSV 数据为卡片数据格式
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const title = columns[0].trim();
             const content = columns.slice(1).map(col => col.trim()).join('<br>'); // 将剩余的列合并为正文段落
 
-            result.push({ title: title, content: content });
+            result.push({ title: title, content: content, bookmarked: false });
         });
 
         return result;
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <h2>${cardData.title}</h2>
             <div class="content hidden"><p>${cardData.content}</p></div>
             <div class="card-index">${index + 1}/${cards.length}</div>
-            <button class="bookmark-btn" data-index="${index}"></button>
+            <button class="bookmark-btn ${cardData.bookmarked ? 'bookmarked' : ''}" data-index="${index}"></button>
         `;
             container.insertBefore(newCard, prevButton.parentElement);
         });
@@ -65,10 +66,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 标记或取消标记卡片
     function toggleBookmark(index) {
+        cards[index].bookmarked = !cards[index].bookmarked;
         const bookmarkBtn = cards[index].querySelector('.bookmark-btn');
         bookmarkBtn.classList.toggle('bookmarked');
+        saveBookmarkState(); // 保存标记状态到本地存储
     }
 
+    // 保存标记状态到本地存储
+    function saveBookmarkState() {
+        const bookmarkedIndices = Array.from(cards).reduce((acc, card, index) => {
+            if (card.bookmarked) {
+                acc.push(index);
+            }
+            return acc;
+        }, []);
+        localStorage.setItem('bookmarkedIndices', JSON.stringify(bookmarkedIndices));
+    }
+
+    // 加载保存的标记状态
+    function restoreBookmarkState() {
+        const bookmarkedIndices = JSON.parse(localStorage.getItem('bookmarkedIndices')) || [];
+        bookmarkedIndices.forEach(index => {
+            if (index < cards.length) { // 确保索引在有效范围内
+                cards[index].bookmarked = true;
+                const bookmarkBtn = cards[index].querySelector('.bookmark-btn');
+                bookmarkBtn.classList.add('bookmarked');
+            }
+        });
+    }
 
     // 初始显示第一张卡片，隐藏其余卡片
     function updateCardDisplay() {
