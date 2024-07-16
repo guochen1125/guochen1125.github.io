@@ -1,4 +1,5 @@
 body {
+    padding: 0 10%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +9,7 @@ body {
 }
 
 .card {
-    background-color: #eee5f8;
+    background-color: #b5c4b1;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);

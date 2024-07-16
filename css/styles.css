@@ -14,7 +14,7 @@ body {
 header {
     background-color: #656565;
     /* 设置背景颜色为 #656565 */
-    color: #fff;
+    color: #ececea;
     /* 设置字体颜色为白色 */
     padding: 0.2rem 0;
     /* 设置上下内边距为 1rem */
@@ -44,7 +44,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: #ececea;
     /* 设置链接颜色为白色 */
     text-decoration: none;
     /* 移除链接的下划线 */
@@ -104,4 +104,13 @@ h6 {
 p {
     margin-top: 0.5em;
     margin-bottom: 1em;
+}
+
+@font-face {
+    font-family: 'HarryPotter';
+    src: url('../fonts/harry_potter.ttf') format('truetype');
+}
+
+.hp-font {
+    font-family: 'HarryPotter', sans-serif;
 }
