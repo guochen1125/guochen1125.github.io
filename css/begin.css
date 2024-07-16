@@ -8,21 +8,35 @@ body {
     background-color: #656565;
 }
 
+
+@font-face {
+    font-family: 'PF Thin Simple';
+    src: url('../fonts/pf_thin_simple.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .card {
     background-color: #b5c4b1;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     width: 200px;
-    height: 20px;
+    height: 30px; /* 调整高度以适应内容 */
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加过渡效果 */
 }
-
-
 
 .card h2 {
     margin: 0;
+    font-family: 'PF Thin Simple', sans-serif; /* 使用字体 */
+
+}
+
+.card:hover {
+    transform: scale(1.03); /* 悬浮时放大 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* 悬浮时增加阴影 */
 }

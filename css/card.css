@@ -97,3 +97,15 @@ body {
 .bookmark-btn.bookmarked {
     background-color: #8696a7;
 }
+
+
+@font-face {
+    font-family: 'PF Thin Simple';
+    src: url('../fonts/pf_thin_simple.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.content p {
+    font-family: 'PF Thin Simple', sans-serif; /* 使用字体 */
+    /* 其他样式 */
+}

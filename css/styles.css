@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, 'PF Thin Simple', sans-serif;
     /* 设置字体为 T 和 sans-serif */
     line-height: 1.6;
     /* 设置行高为 1.6 */
@@ -9,6 +9,13 @@ body {
     /* 设置内边距为 0 */
     background-color: #ececea;
     /* 设置背景颜色为 #ececea */
+}
+
+@font-face {
+    font-family: 'PF Thin Simple';
+    src: url('../fonts/pf_thin_simple.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 header {
