@@ -1,5 +1,5 @@
 body {
-    font-family: "Times New Roman", SimSun, serif;
+    font-family: Arial, Helvetica, sans-serif;
     /* 设置字体为 T 和 sans-serif */
     line-height: 1.6;
     /* 设置行高为 1.6 */
@@ -49,6 +49,11 @@ nav ul li a {
     text-decoration: none;
     /* 移除链接的下划线 */
 }
+main section a {
+    color: #656565;
+    /* text-decoration: none;
+    移除链接的下划线 */
+}
 
 main {
     padding: 0 10%;
@@ -63,29 +68,6 @@ main li {
 
 main h2 {
     font-family: Arial, Helvetica, sans-serif
-}
-
-main p {
-    font-size: 1.2rem;
-    margin-left: 2%;
-}
-
-footer {
-    position: fixed;
-    /* 使用固定定位 */
-    bottom: 0;
-    /* 放置在页面底部 */
-    left: 0;
-    /* 左边距离为0 */
-    width: 100%;
-    /* 宽度占满整个视口 */
-
-    padding: 10px 20px;
-    /* 可选：添加内边距 */
-    text-align: center;
-    /* 可选：文本居中 */
-    z-index: 1000;
-    /* 可选：设置一个足够高的z-index，确保在其他元素之上 */
 }
 
 .social-icons {
