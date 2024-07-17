@@ -1,82 +1,70 @@
-body {
-    font-family: Arial, 'PF Thin Simple', sans-serif;
-    /* 设置字体为 T 和 sans-serif */
-    line-height: 1.6;
-    /* 设置行高为 1.6 */
-    margin: 0;
-    /* 设置外边距为 0 */
-    padding: 0;
-    /* 设置内边距为 0 */
-    background-color: #ececea;
-    /* 设置背景颜色为 #ececea */
-}
-
+/* 定义字体 */
 @font-face {
-    font-family: 'PF Thin Simple';
-    src: url('../fonts/pf_thin_simple.ttf') format('truetype');
+    font-family: 'PF_STD';
+    src: url('../fonts/pf_std.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'HP';
+    src: url('../fonts/hp.ttf') format('truetype');
+}
+
+/* 全局样式 */
+body {
+    font-family: Arial, 'PF_STD', sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    background-color: #ececea;
+}
+
+/* 头部样式 */
 header {
     background-color: #656565;
-    /* 设置背景颜色为 #656565 */
     color: #ececea;
-    /* 设置字体颜色为白色 */
-    padding: 0.2rem 0;
-    /* 设置上下内边距为 1rem */
+    padding: 0.1rem 0;
     text-align: center;
-    /* 设置文本居中对齐 */
+}
+header h1{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+
 }
 
-header h1 {
-    margin: 0;
-    /* 设置外边距为 0 */
-}
-
+/* 导航样式 */
 nav ul {
     list-style: none;
-    /* 移除列表项的默认样式 */
     padding: 0;
-    /* 设置内边距为 0 */
     text-align: center;
-    /* 设置文本居中对齐 */
 }
 
 nav ul li {
     display: inline;
-    /* 设置列表项为内联显示 */
     margin: 0 1rem;
-    /* 设置左右外边距为 1rem */
 }
 
 nav ul li a {
     color: #ececea;
-    /* 设置链接颜色为白色 */
     text-decoration: none;
-    /* 移除链接的下划线 */
-}
-main section a {
-    color: #656565;
-    /* text-decoration: none;
-    移除链接的下划线 */
 }
 
+/* 主内容样式 */
 main {
     padding: 0 10%;
+}
 
+main section a {
+    color: #656565;
 }
 
 main li {
-
     list-style-type: none;
-    /* 移除列表项的默认样式 */
 }
 
-main h2 {
-    font-family: Arial, Helvetica, sans-serif
-}
 
+/* 社交图标样式 */
 .social-icons {
     list-style-type: none;
     padding: 0;
@@ -90,34 +78,19 @@ main h2 {
 
 .social-icons li a {
     color: #000000;
-    /* 设置图标颜色 */
 }
 
 .social-icons li a:hover {
     color: #656565;
-    /* 设置鼠标悬停时的颜色 */
 }
 
-/* Adjusting spacing between headings and paragraphs */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin-bottom: 0.2em;
+/* 调整标题和段落的间距 */
+h1,h2,h3,p {
+    margin-top: 1em;
+    margin-bottom: -0.5em;
 }
 
-p {
-    margin-top: 0.5em;
-    margin-bottom: 1em;
-}
-
-@font-face {
-    font-family: 'HarryPotter';
-    src: url('../fonts/harry_potter.ttf') format('truetype');
-}
-
+/* Harry Potter 字体样式 */
 .hp-font {
-    font-family: 'HarryPotter', sans-serif;
+    font-family: 'HP', sans-serif;
 }
