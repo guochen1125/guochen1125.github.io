@@ -100,12 +100,12 @@ body {
 
 
 @font-face {
-    font-family: 'PF Thin Simple';
+    font-family: 'PF_STD';
     src: url('../fonts/pf_std.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 .content p {
-    font-family: 'PF Thin Simple', sans-serif; /* 使用字体 */
+    font-family: "PingFang SC", 'PF_STD', sans-serif; /* 使用字体 */
     /* 其他样式 */
 }

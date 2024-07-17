@@ -3,6 +3,14 @@
     src: url('../fonts/hp.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'PF_STD';
+    src: url('../fonts/pf_std.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 body {
     padding: 0 10%;
     display: flex;
@@ -12,7 +20,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #656565;
-    font-family: 'HP', sans-serif;
+    font-family: 'HP', 'PF_STD',sans-serif;
 }
 
 .hp-font {
