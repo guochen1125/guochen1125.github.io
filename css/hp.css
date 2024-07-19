@@ -10,17 +10,20 @@
     font-style: normal;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
 body {
-    padding: 0 10%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
     background-color: #656565;
-    font-family: 'HP', 'PF_STD',sans-serif;
+    font-family: 'HP', 'PF_STD', sans-serif;
+    padding: 0 10%;
 }
 
 .hp-font {
@@ -30,7 +33,7 @@ body {
     max-width: 90%;
     padding: 20px;
     color: #b5c4b1;
-
+    margin-bottom: 20px; /* Ensure spacing between text and button */
 }
 
 body a {
